@@ -19,7 +19,7 @@ int sence_cnt=0;
 int time_cnt=0;
 
 typedef struct {
-  const int id=1; 
+  const int id=2; 
   int temp; 
   int water; 
   boolean h_s; 
@@ -70,19 +70,19 @@ void loop() {
       sen.water=(s2_t/sence_cnt);
       sen.h_s =(digitalRead(6)==0);
     
-      Serial.print("sw1=");  
-      Serial.println(sen.s1);
-      Serial.print("sw2=");
-      Serial.println(sen.s2);
-      Serial.print("sw3=");
-      Serial.println(sen.s3);
-      Serial.print("temp=[C]");
-      Serial.println(sen.temp);
-      Serial.print("water=");
-      Serial.println(sen.water);
-      Serial.print("h_s=");
-      Serial.println(sen.h_s);
-      Serial.println(""); 
+//      Serial.print("sw1=");  
+//      Serial.println(sen.s1);
+//      Serial.print("sw2=");
+//      Serial.println(sen.s2);
+//      Serial.print("sw3=");
+//      Serial.println(sen.s3);
+//      Serial.print("temp=[C]");
+//      Serial.println(sen.temp);
+//      Serial.print("water=");
+//      Serial.println(sen.water);
+//      Serial.print("h_s=");
+//      Serial.println(sen.h_s);
+//      Serial.println(""); 
       s1_t=0;
       s2_t=0;
       s3_t=0;

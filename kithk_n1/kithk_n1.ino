@@ -3,8 +3,8 @@
 #include <Ethernet.h>
 #include "ThingSpeak.h"
 
-unsigned long SecletBase1 = 159403;
-const char * SecletBase1_Key = "SQJBG2FRDCX3GBTC";
+unsigned long SecletBase2 = 160260;
+const char * SecletBase2_Key = "8F8WB9BYY9RHGGEL";
 byte mac[] = { 0x90, 0xA2, 0xDA, 0x00, 0xE5, 0xF1 };
 EthernetClient client;
 char tmp;
@@ -68,21 +68,21 @@ void loop() {
       sen.temp = map((s1_t/sence_cnt), 0, 1023, 0,5000 );//電圧変換
       sen.temp = map(sen.temp,300+950,1600+950,-30,100);
       sen.water=(s2_t/sence_cnt);
-      sen.h_s =(digitalRead(6)==0);
+      sen.h_s =(digitalRead(6)==1);
     
-      Serial.print("sw1=");  
-      Serial.println(sen.s1);
-      Serial.print("sw2=");
-      Serial.println(sen.s2);
-      Serial.print("sw3=");
-      Serial.println(sen.s3);
-      Serial.print("temp=[C]");
-      Serial.println(sen.temp);
-      Serial.print("water=");
-      Serial.println(sen.water);
-      Serial.print("h_s=");
-      Serial.println(sen.h_s);
-      Serial.println(""); 
+//      Serial.print("sw1=");  
+//      Serial.println(sen.s1);
+//      Serial.print("sw2=");
+//      Serial.println(sen.s2);
+//      Serial.print("sw3=");
+//      Serial.println(sen.s3);
+//      Serial.print("temp=[C]");
+//      Serial.println(sen.temp);
+//      Serial.print("water=");
+//      Serial.println(sen.water);
+//      Serial.print("h_s=");
+//      Serial.println(sen.h_s);
+//      Serial.println(""); 
       s1_t=0;
       s2_t=0;
       s3_t=0;
@@ -110,7 +110,7 @@ void dataPush()
   ThingSpeak.setField(2, sen.water);  // 土壌
   ThingSpeak.setField(3, sen.h_s);  // 距離
   ThingSpeak.setField(4, flagCount);  // スイッチ
-  ThingSpeak.writeFields(SecletBase1, SecletBase1_Key); 
+  ThingSpeak.writeFields(SecletBase2, SecletBase2_Key); 
   
   time_cnt = 0;
   Serial.print("push!");
