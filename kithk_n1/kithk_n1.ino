@@ -22,7 +22,7 @@ typedef struct {
   const int id=1; 
   int temp; 
   int water; 
-  int dist; 
+  boolean h_s; 
   boolean s1;
   boolean s2;
   boolean s3;
@@ -42,6 +42,7 @@ void setup() {
   pinMode(7,INPUT);
   pinMode(8,INPUT);
   pinMode(9,INPUT);
+  pinMode(6,INPUT);
   
   MsTimer2::set(1000, flag);      // 1秒ごとにtimeflag関数を呼び出す設定
   MsTimer2::start();              // タイマー割り込み開始
@@ -63,52 +64,54 @@ void loop() {
       sen.s1=(digitalRead(7)==0); //(ON=0)
       sen.s2=(digitalRead(8)==0); 
       sen.s3=(digitalRead(9)==0); 
+      
       sen.temp = map((s1_t/sence_cnt), 0, 1023, 0,5000 );//電圧変換
       sen.temp = map(sen.temp,300+950,1600+950,-30,100);
       sen.water=(s2_t/sence_cnt);
-      sen.dist=(s3_t/sence_cnt);
+      sen.h_s =(digitalRead(6)==0);
     
-//      Serial.print("sw1=");  
-//      Serial.println(sen.s1);
-//      Serial.print("sw2=");
-//      Serial.println(sen.s2);
-//      Serial.print("sw3=");
-//      Serial.println(sen.s3);
-//      Serial.print("temp=[C]");
-//      Serial.println(sen.temp);
-//      Serial.print("water=");
-//      Serial.println(sen.water);
-//      Serial.print("dist=");
-//      Serial.println(sen.dist);
-//      Serial.println(""); 
+      Serial.print("sw1=");  
+      Serial.println(sen.s1);
+      Serial.print("sw2=");
+      Serial.println(sen.s2);
+      Serial.print("sw3=");
+      Serial.println(sen.s3);
+      Serial.print("temp=[C]");
+      Serial.println(sen.temp);
+      Serial.print("water=");
+      Serial.println(sen.water);
+      Serial.print("h_s=");
+      Serial.println(sen.h_s);
+      Serial.println(""); 
       s1_t=0;
       s2_t=0;
       s3_t=0;
-      sence_cnt=0;
-      timeflag = false;
       
       time_cnt++;
+      sence_cnt=0;
+      timeflag = false;
+
     }
     
-    if(time_cnt == 16){
+    if(time_cnt == 20){
       dataPush();
     }
     
     s1_t += analogRead(A1);
-   // Serial.println(s1_t);    
     s2_t += analogRead(A2);
-    s3_t += analogRead(A3);
     sence_cnt++;
 }
 
 void dataPush()
 {
-  int flagCount = 3 - (sen.s1 + sen.s2 + sen.s3);
+  int flagCount = sen.s1 + sen.s2 + sen.s3;
   Serial.println(flagCount);
-  ThingSpeak.writeField(SecletBase1, 1, sen.temp, SecletBase1_Key);  // 温度
-  ThingSpeak.writeField(SecletBase1, 2, sen.water, SecletBase1_Key);  // 土壌
-  ThingSpeak.writeField(SecletBase1, 3, 30, SecletBase1_Key);  // 距離
-  ThingSpeak.writeField(SecletBase1, 4, flagCount, SecletBase1_Key);  // スイッチ
+  ThingSpeak.setField(1, sen.temp);  // 温度
+  ThingSpeak.setField(2, sen.water);  // 土壌
+  ThingSpeak.setField(3, sen.h_s);  // 距離
+  ThingSpeak.setField(4, flagCount);  // スイッチ
+  ThingSpeak.writeFields(SecletBase1, SecletBase1_Key); 
+  
   time_cnt = 0;
   Serial.print("push!");
 }
