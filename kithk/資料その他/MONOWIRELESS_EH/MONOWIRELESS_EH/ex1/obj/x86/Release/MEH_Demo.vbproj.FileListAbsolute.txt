@@ -1,0 +1,17 @@
+C:\Users\--\Desktop\TOCOS_EH\ex1\bin\Release\MONO-TagViewer.exe.manifest
+C:\Users\--\Desktop\TOCOS_EH\ex1\bin\Release\MONO-TagViewer.application
+C:\Users\--\Desktop\TOCOS_EH\ex1\bin\Release\MONO-TagViewer.exe
+C:\Users\--\Desktop\TOCOS_EH\ex1\bin\Release\MONO-TagViewer.pdb
+C:\Users\--\Desktop\TOCOS_EH\ex1\bin\Release\MONO-TagViewer.xml
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MEH_Demo.vbprojResolveAssemblyReference.cache
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONOEHDemoAPP.frmMain.resources
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONOEHDemoAPP.frmLaunch.resources
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONOEHDemoAPP.frmAbout.resources
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONOEHDemoAPP.Resources.resources
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MEH_Demo.vbproj.GenerateResource.Cache
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONO-TagViewer.TrustInfo.xml
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONO-TagViewer.exe.manifest
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONO-TagViewer.application
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONO-TagViewer.exe
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONO-TagViewer.xml
+C:\Users\--\Desktop\TOCOS_EH\ex1\obj\x86\Release\MONO-TagViewer.pdb
